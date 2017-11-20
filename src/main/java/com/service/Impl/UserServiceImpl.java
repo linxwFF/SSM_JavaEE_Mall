@@ -220,4 +220,13 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccess(user);
     }
 
+    //backen
+    public ServerResponse checkAdminRole(User user)
+    {
+        if(user == null && user.getRole().intValue() != Const.Role.ROLE_ADMIN){
+            return ServerResponse.createByErrorMsg("用户权限不足");
+        }
+        return ServerResponse.createBySuccess();
+    }
+
 }
